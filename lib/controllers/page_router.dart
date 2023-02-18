@@ -13,10 +13,8 @@ final GoRouter routerObject = GoRouter(
     GoRoute(
       name: routeHome,
       path: "/",
-      // path: "/",
-      builder: (context, state) => const HomeScreen(
-        child: SizedBox(),
-      ),
+      builder: (context, state) => HomeScreen(),
+
       routes: [
         GoRoute(
           name: "details",
@@ -30,8 +28,8 @@ final GoRouter routerObject = GoRouter(
           path: 'about',
           builder: (BuildContext context, GoRouterState state) {
             return AboutScreen(
-              child: nav.NavigationBar(),
-            );
+                // child: nav.NavigationBar(),
+                );
           },
         ),
         GoRoute(
@@ -39,8 +37,8 @@ final GoRouter routerObject = GoRouter(
           path: 'contactus',
           builder: (BuildContext context, GoRouterState state) {
             return ContactScreen(
-              child: nav.NavigationBar(),
-            );
+                // child: nav.NavigationBarCustom(),
+                );
           },
         ),
         GoRoute(

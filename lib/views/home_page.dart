@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:marutiseva/widgets/navigation_bar_web.dart' as navBar;
+import 'package:marutiseva/widgets/navigation_bar_web.dart';
+
+import 'package:marutiseva/controllers/Locator.dart';
+import 'package:marutiseva/widgets/navigation_bar_web.dart';
 
 class HomeScreen extends StatelessWidget {
   /// Constructs a [HomeScreen]
-  final Widget? child;
-  const HomeScreen({
-    required this.child,
+  // final Widget? child;
+  // const HomeScreen({
+  //   required this.child,
+  //   Key? key,
+  // }) : super(key: key);
+  HomeScreen({
     Key? key,
   }) : super(key: key);
+  final NavigationBarCustom nvbar = getItLocator<NavigationBarCustom>();
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +24,12 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          navBar.NavigationBar(),
-          // ElevatedButton(
-          //   // onPressed: () => context.go('/details'),
-          //   onPressed: () => context.goNamed('details'),
-          //   child: const Text('Go to the Details screen'),
-          // ),
+          nvbar,
+          ElevatedButton(
+            // onPressed: () => context.go('/details'),
+            onPressed: () => context.goNamed('details'),
+            child: const Text('Go to the Details screen'),
+          ),
         ],
       ),
     );

@@ -23,6 +23,7 @@ class NavigationItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         context.goNamed(routeName);
+        // context.go('/about');
         onHighlight(routeName);
       },
       child: Padding(

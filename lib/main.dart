@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'controllers/page_router.dart' as route;
 import 'package:marutiseva/views/home_page.dart';
+import 'package:marutiseva/controllers/Locator.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupLocator();
   runApp(const MyApp());
 }
 
