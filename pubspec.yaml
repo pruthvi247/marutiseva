@@ -31,6 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^6.0.8
+  universal_html: ^2.0.9
+  get_it: ^7.2.0
 
 
   # The following adds the Cupertino Icons font to your application.

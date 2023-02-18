@@ -10,6 +10,7 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("TRACE: Building contacts screen");
     return Scaffold(
       // appBar: AppBar(title: const Text('About Screen')),
       body: Column(
@@ -18,7 +19,7 @@ class ContactScreen extends StatelessWidget {
           child ?? const SizedBox(),
           ElevatedButton(
             onPressed: () => context.go('/'),
-            child: const Text('Go back to the Home screen'),
+            child: const Text('[contact]Go back to the Home screen'),
           ),
         ],
       ),

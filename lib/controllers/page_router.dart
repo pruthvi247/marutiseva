@@ -4,14 +4,14 @@ import 'package:go_router/go_router.dart';
 import 'package:marutiseva/views/home_page.dart';
 import 'package:marutiseva/views/about_page.dart';
 import 'package:marutiseva/views/contact_page.dart';
+import 'package:marutiseva/utils/constants.dart';
 import 'package:marutiseva/widgets/navigation_bar_web.dart' as nav;
 
-const userIsNotLoggedIn = false;
 final GoRouter routerObject = GoRouter(
   errorBuilder: (context, state) => const ErrorScreen(),
   routes: <RouteBase>[
     GoRoute(
-      name: "home",
+      name: routeHome,
       path: "/",
       // path: "/",
       builder: (context, state) => const HomeScreen(
@@ -26,7 +26,7 @@ final GoRouter routerObject = GoRouter(
           },
         ),
         GoRoute(
-          name: "about",
+          name: routeAbout,
           path: 'about',
           builder: (BuildContext context, GoRouterState state) {
             return AboutScreen(
@@ -35,7 +35,7 @@ final GoRouter routerObject = GoRouter(
           },
         ),
         GoRoute(
-          name: "contact",
+          name: routeContacts,
           path: 'contactus',
           builder: (BuildContext context, GoRouterState state) {
             return ContactScreen(
