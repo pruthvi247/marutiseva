@@ -7,6 +7,8 @@ import 'package:marutiseva/views/contact_page.dart';
 import 'package:marutiseva/utils/constants.dart';
 import 'package:marutiseva/widgets/navigation_bar_web.dart' as nav;
 
+import '../views/services_page.dart';
+
 final GoRouter routerObject = GoRouter(
   initialLocation: "/home",
   errorBuilder: (context, state) => const ErrorScreen(),
@@ -38,6 +40,15 @@ final GoRouter routerObject = GoRouter(
           path: 'contactus',
           builder: (BuildContext context, GoRouterState state) {
             return ContactScreen(
+                // child: nav.NavigationBarCustom(),
+                );
+          },
+        ),
+        GoRoute(
+          name: routeServices,
+          path: 'Services',
+          builder: (BuildContext context, GoRouterState state) {
+            return ServiceScreen(
                 // child: nav.NavigationBarCustom(),
                 );
           },

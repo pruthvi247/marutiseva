@@ -52,6 +52,7 @@ class _AboutScreenState extends State<AboutScreen>
   }
 
   Widget desktopView() {
+    debugPrint('TRACE : Desktop view');
     return Stack(
       children: [
         Row(
@@ -74,6 +75,8 @@ class _AboutScreenState extends State<AboutScreen>
   }
 
   Widget mobileView() {
+    debugPrint('TRACE : Mobile view');
+
     return Column(
       children: [
         SizedBox(height: screenHeight * 0.05),

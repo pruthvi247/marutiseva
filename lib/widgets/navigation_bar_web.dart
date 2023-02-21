@@ -77,24 +77,21 @@ class _NavigationBarCustomState extends State<NavigationBarCustom> {
               );
             },
           ),
-          // NavigationItem(
-          //   title: 'Home',
-          //   selected: index1 == 0 ? true : false,
-          //   routeName: routeHome,
-          //   onHighlight: onHighlight,
-          // ),
-          // NavigationItem(
-          //   title: 'About',
-          //   selected: index1 == 1 ? true : false,
-          //   routeName: routeAbout,
-          //   onHighlight: onHighlight,
-          // ),
-          // NavigationItem(
-          //   title: 'Contact',
-          //   selected: index1 == 2 ? true : false,
-          //   routeName: routeContacts,
-          //   onHighlight: onHighlight,
-          // ),
+          ValueListenableBuilder(
+            valueListenable: dashboardValueNotifierq.value.tabIndex,
+            builder: (BuildContext context, int value, Widget? child) {
+              debugPrint(
+                  'cliced on ${dashboardValueNotifierq.value.tabIndex.value}');
+              return NavigationItem(
+                title: 'Services',
+                selected: dashboardValueNotifierq.value.tabIndex.value == 3
+                    ? true
+                    : false,
+                routeName: routeServices,
+                onHighlight: onHighlight,
+              );
+            },
+          ),
         ],
       ),
     );
@@ -103,33 +100,22 @@ class _NavigationBarCustomState extends State<NavigationBarCustom> {
   void onHighlight(String route) {
     switch (route) {
       case routeHome:
-        print("case home");
         changeHighlight(0);
         break;
       case routeAbout:
-        print("case about");
         changeHighlight(1);
         break;
       case routeContacts:
-        print("case contacts");
         changeHighlight(2);
+        break;
+      case routeServices:
+        changeHighlight(3);
         break;
     }
   }
 
-  // void changeHighlight(int newIndex) {
-  //   print("Selection changed : ${newIndex}");
-  //   setState(() {
-  //     index1 = newIndex;
-  //   });
-  // }
   void changeHighlight(int newIndex) {
     print("Selection changed : ${newIndex}");
     dashboardValueNotifierq.setTabIndex(newIndex);
-    // setState(() {
-    //   // index1.value = newIndex;
-    //   dashboardValueNotifierq.setTabIndex(newIndex);
-    //   // notifyListeners();
-    // });
   }
 }

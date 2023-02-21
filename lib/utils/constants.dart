@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 const String routeHome = 'home';
 const String routeAbout = 'about';
 const String routeContacts = 'contact';
+const String routeServices = 'services';
 
 const kTextColor = Color(0xFF707070);
 const kTextLightColor = Color(0xFF555555);

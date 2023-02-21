@@ -23,9 +23,6 @@ class BulletPoint extends StatelessWidget {
               parent: animationController,
               curve: Interval(_animationStart, _animationEnd,
                   curve: Curves.ease))),
-      // child: Container(
-      //    child: Text(">>>>>>>>>>"),
-      // ),
       child: FadeTransition(
         opacity: animationController,
         child: Row(
