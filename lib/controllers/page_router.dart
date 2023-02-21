@@ -8,11 +8,12 @@ import 'package:marutiseva/utils/constants.dart';
 import 'package:marutiseva/widgets/navigation_bar_web.dart' as nav;
 
 final GoRouter routerObject = GoRouter(
+  initialLocation: "/home",
   errorBuilder: (context, state) => const ErrorScreen(),
   routes: <RouteBase>[
     GoRoute(
       name: routeHome,
-      path: "/",
+      path: "/home",
       builder: (context, state) => HomeScreen(),
 
       routes: [
@@ -41,20 +42,6 @@ final GoRouter routerObject = GoRouter(
                 );
           },
         ),
-        GoRoute(
-          name: "settings",
-          path: "settings/:name",
-          builder: (context, state) {
-            state.queryParams.forEach(
-              (key, value) {
-                print("$key:$value");
-              },
-            );
-            return SettingsPage(
-              name: state.params["name"]!,
-            );
-          },
-        )
       ],
       // redirect: (context, state) {
       //   if (userIsNotLoggedIn) {
@@ -104,7 +91,8 @@ class DetailsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <ElevatedButton>[
             ElevatedButton(
-              onPressed: () => context.go('/'),
+              // onPressed: () => context.go('/'home),
+              onPressed: () => context.goNamed(routeHome),
               child: const Text('Go back to the Home screen'),
             ),
           ],

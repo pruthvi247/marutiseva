@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
+
 import 'controllers/page_router.dart' as route;
 import 'package:marutiseva/views/home_page.dart';
 import 'package:marutiseva/controllers/Locator.dart';

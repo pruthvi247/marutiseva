@@ -125,16 +125,11 @@ class _NavigationBarCustomState extends State<NavigationBarCustom> {
   // }
   void changeHighlight(int newIndex) {
     print("Selection changed : ${newIndex}");
-    setState(() {
-      // index1.value = newIndex;
-      dashboardValueNotifierq.setTabIndex(newIndex);
-      // notifyListeners();
-    });
-  }
-
-  @override
-  void dispose() {
-    dashboardValueNotifierq.dispose();
-    super.dispose();
+    dashboardValueNotifierq.setTabIndex(newIndex);
+    // setState(() {
+    //   // index1.value = newIndex;
+    //   dashboardValueNotifierq.setTabIndex(newIndex);
+    //   // notifyListeners();
+    // });
   }
 }

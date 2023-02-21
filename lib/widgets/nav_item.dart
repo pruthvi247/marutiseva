@@ -22,7 +22,8 @@ class NavigationItem extends StatelessWidget {
     print("Selcted in build ${title} : ${selected}");
     return GestureDetector(
       onTap: () {
-        context.goNamed(routeName);
+        context.pushNamed(routeName);
+        // context.goNamed(routeName);
         // context.go('/about');
         onHighlight(routeName);
       },
