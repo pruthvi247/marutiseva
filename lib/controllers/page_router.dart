@@ -5,7 +5,7 @@ import 'package:marutiseva/views/home_page.dart';
 import 'package:marutiseva/views/about_page.dart';
 import 'package:marutiseva/views/contact_page.dart';
 import 'package:marutiseva/utils/constants.dart';
-import 'package:marutiseva/widgets/navigation_bar_web.dart' as nav;
+// import 'package:marutiseva/widgets/navigation_bar_web.dart' as nav;
 
 import '../views/services_page.dart';
 
@@ -16,7 +16,7 @@ final GoRouter routerObject = GoRouter(
     GoRoute(
       name: routeHome,
       path: "/home",
-      builder: (context, state) => HomeScreen(),
+      builder: (context, state) => const HomeScreen(),
 
       routes: [
         GoRoute(
@@ -30,7 +30,7 @@ final GoRouter routerObject = GoRouter(
           name: routeAbout,
           path: 'about',
           builder: (BuildContext context, GoRouterState state) {
-            return AboutScreen(
+            return const AboutScreen(
                 // child: nav.NavigationBar(),
                 );
           },
@@ -39,7 +39,7 @@ final GoRouter routerObject = GoRouter(
           name: routeContacts,
           path: 'contactus',
           builder: (BuildContext context, GoRouterState state) {
-            return ContactScreen(
+            return const ContactScreen(
                 // child: nav.NavigationBarCustom(),
                 );
           },
@@ -48,7 +48,7 @@ final GoRouter routerObject = GoRouter(
           name: routeServices,
           path: 'Services',
           builder: (BuildContext context, GoRouterState state) {
-            return ServiceScreen(
+            return const ServiceScreen(
                 // child: nav.NavigationBarCustom(),
                 );
           },

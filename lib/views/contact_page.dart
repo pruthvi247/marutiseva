@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'package:go_router/go_router.dart';
 
 import 'package:liquid_swipe/liquid_swipe.dart';
 
-import 'package:marutiseva/controllers/Locator.dart';
-import 'package:marutiseva/utils/constants.dart';
+import 'package:marutiseva/controllers/locator.dart';
 import 'package:marutiseva/widgets/navigation_bar_web.dart';
 import 'package:marutiseva/utils/index_incrementer.dart';
-import 'package:marutiseva/widgets/nav_item.dart';
 
 class ContactScreen extends StatefulWidget {
   // final Widget? child;
@@ -17,7 +14,7 @@ class ContactScreen extends StatefulWidget {
   //   required this.child,
   // }) : super(key: key);
 
-  ContactScreen({
+  const ContactScreen({
     Key? key,
   }) : super(key: key);
 
@@ -57,7 +54,7 @@ class _ContactScreenState extends State<ContactScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("TRACE: Building contacts screen");
+    debugPrint("TRACE: Building contacts screen");
     return MaterialApp(
       home: Scaffold(
         body: Stack(
@@ -82,12 +79,11 @@ class _ContactScreenState extends State<ContactScreen> {
                         padding: EdgeInsets.all(index != 4 ? 24.0 : 0),
                       ),
                       index == 4
-                          ? Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 70.0),
+                          ? const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 70.0),
                               child: ExampleSlider(),
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                       Column(
                         children: <Widget>[
                           Text(
@@ -109,7 +105,7 @@ class _ContactScreenState extends State<ContactScreen> {
                 );
               },
               positionSlideIcon: 0.8,
-              slideIconWidget: Icon(Icons.arrow_back_ios),
+              slideIconWidget: const Icon(Icons.arrow_back_ios),
               onPageChangeCallback: pageChangeCallback,
               waveType: WaveType.liquidReveal,
               liquidController: liquidController,
@@ -120,10 +116,10 @@ class _ContactScreenState extends State<ContactScreen> {
               ignoreUserGestureWhileAnimating: true,
             ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 children: <Widget>[
-                  Expanded(child: SizedBox()),
+                  const Expanded(child: SizedBox()),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List<Widget>.generate(data.length, _buildDot),
@@ -140,10 +136,10 @@ class _ContactScreenState extends State<ContactScreen> {
                     liquidController.animateToPage(
                         page: data.length - 1, duration: 700);
                   },
-                  child: Text("Skip to End"),
                   style: TextButton.styleFrom(
                       backgroundColor: Colors.white.withOpacity(0.01),
                       foregroundColor: Colors.black),
+                  child: const Text("Skip to End"),
                 ),
               ),
             ),
@@ -158,10 +154,10 @@ class _ContactScreenState extends State<ContactScreen> {
                             ? 0
                             : liquidController.currentPage + 1);
                   },
-                  child: Text("Next"),
                   style: TextButton.styleFrom(
                       backgroundColor: Colors.white.withOpacity(0.01),
                       foregroundColor: Colors.black),
+                  child: const Text("Next"),
                 ),
               ),
             )
@@ -203,13 +199,16 @@ class _ContactScreenState extends State<ContactScreen> {
 
 ///Example of App with LiquidSwipe by providing list of widgets
 class WithPages extends StatefulWidget {
-  static final style = TextStyle(
+  static const style = TextStyle(
     fontSize: 30,
     fontFamily: "Billy",
     fontWeight: FontWeight.w600,
   );
 
+  const WithPages({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _WithPages createState() => _WithPages();
 }
 
@@ -229,11 +228,11 @@ class _WithPages extends State<WithPages> {
             'assets/images/slide4.jpg',
             fit: BoxFit.cover,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(24.0),
           ),
           Column(
-            children: <Widget>[
+            children: const <Widget>[
               Text(
                 "Hi",
                 style: WithPages.style,
@@ -262,11 +261,11 @@ class _WithPages extends State<WithPages> {
             'assets/images/slide4.jpg',
             fit: BoxFit.cover,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(24.0),
           ),
           Column(
-            children: <Widget>[
+            children: const <Widget>[
               Text(
                 "Take a",
                 style: WithPages.style,
@@ -295,11 +294,11 @@ class _WithPages extends State<WithPages> {
             'assets/images/slide4.jpg',
             fit: BoxFit.cover,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(24.0),
           ),
           Column(
-            children: <Widget>[
+            children: const <Widget>[
               Text(
                 "Liked?",
                 style: WithPages.style,
@@ -328,11 +327,11 @@ class _WithPages extends State<WithPages> {
             'assets/images/slide4.jpg',
             fit: BoxFit.cover,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(24.0),
           ),
           Column(
-            children: <Widget>[
+            children: const <Widget>[
               Text(
                 "Can be",
                 style: WithPages.style,
@@ -361,12 +360,12 @@ class _WithPages extends State<WithPages> {
             'assets/images/slide4.jpg',
             fit: BoxFit.cover,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 70.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 70.0),
             child: ExampleSlider(),
           ),
           Column(
-            children: <Widget>[
+            children: const <Widget>[
               Text(
                 "Example",
                 style: WithPages.style,
@@ -395,11 +394,11 @@ class _WithPages extends State<WithPages> {
             'assets/images/slide4.jpg',
             fit: BoxFit.cover,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(24.0),
           ),
           Column(
-            children: <Widget>[
+            children: const <Widget>[
               Text(
                 "Do",
                 style: WithPages.style,
@@ -433,13 +432,13 @@ class _WithPages extends State<WithPages> {
       ),
     );
     double zoom = 1.0 + (2.0 - 1.0) * selectedness;
-    return new Container(
+    return SizedBox(
       width: 25.0,
-      child: new Center(
-        child: new Material(
+      child: Center(
+        child: Material(
           color: Colors.white,
           type: MaterialType.circle,
-          child: new Container(
+          child: SizedBox(
             width: 8.0 * zoom,
             height: 8.0 * zoom,
           ),
@@ -458,7 +457,7 @@ class _WithPages extends State<WithPages> {
               pages: pages,
               positionSlideIcon: 0.8,
               fullTransitionValue: 880,
-              slideIconWidget: Icon(Icons.arrow_back_ios),
+              slideIconWidget: const Icon(Icons.arrow_back_ios),
               onPageChangeCallback: pageChangeCallback,
               waveType: WaveType.liquidReveal,
               liquidController: liquidController,
@@ -468,10 +467,10 @@ class _WithPages extends State<WithPages> {
               enableLoop: true,
             ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 children: <Widget>[
-                  Expanded(child: SizedBox()),
+                  const Expanded(child: SizedBox()),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List<Widget>.generate(pages.length, _buildDot),
@@ -488,10 +487,10 @@ class _WithPages extends State<WithPages> {
                     liquidController.animateToPage(
                         page: pages.length - 1, duration: 700);
                   },
-                  child: Text("Skip to End"),
                   style: TextButton.styleFrom(
                       backgroundColor: Colors.white.withOpacity(0.01),
                       foregroundColor: Colors.black),
+                  child: const Text("Skip to End"),
                 ),
               ),
             ),
@@ -507,10 +506,10 @@ class _WithPages extends State<WithPages> {
                                 ? 0
                                 : liquidController.currentPage + 1);
                   },
-                  child: Text("Next"),
                   style: TextButton.styleFrom(
                       backgroundColor: Colors.white.withOpacity(0.01),
                       foregroundColor: Colors.black),
+                  child: const Text("Next"),
                 ),
               ),
             )

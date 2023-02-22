@@ -2,11 +2,9 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:marutiseva/widgets/navigation_bar_web.dart';
-import 'package:marutiseva/controllers/Locator.dart';
-import 'package:marutiseva/widgets/navigation_bar_web.dart';
+import 'package:marutiseva/controllers/locator.dart';
 
 const dummyText =
     'Manage your project, Organize your own workspace, keep statistics and collaborate with your teammates in one place';
@@ -18,7 +16,7 @@ class HomeScreen extends StatefulWidget {
   //   required this.child,
   //   Key? key,
   // }) : super(key: key);
-  HomeScreen({
+  const HomeScreen({
     Key? key,
   }) : super(key: key);
 
@@ -45,115 +43,112 @@ class _HomeScreenState extends State<HomeScreen> {
     _controller.addListener(() {
       setState(() {
         pixels = _controller.position.pixels;
-        print(_controller.position.pixels);
+        // debugPrint(_controller.position.pixels as String?);
       });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    print("TRACE: Building Home screen");
+    debugPrint("TRACE: Building Home screen");
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        child: SingleChildScrollView(
-          controller: _controller,
-          child: Column(
-            children: [
-              nvbar,
-              SizedBox(
-                child: CarouselSlider(
-                  options: CarouselOptions(
-                    height: 400.0,
-                    enableInfiniteScroll: true,
-                    reverse: false,
-                    autoPlay: true,
-                    autoPlayInterval: const Duration(seconds: 4),
-                    autoPlayAnimationDuration:
-                        const Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                  ),
-                  items: images.map((i) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                          decoration: const BoxDecoration(color: Colors.white),
-                          child: Container(
-                            child: i,
-                          ),
-                        );
-                      },
-                    );
-                  }).toList(),
+      body: SingleChildScrollView(
+        controller: _controller,
+        child: Column(
+          children: [
+            nvbar,
+            SizedBox(
+              child: CarouselSlider(
+                options: CarouselOptions(
+                  height: 400.0,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 4),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
                 ),
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const SizedBox(width: 20.0, height: 100.0),
-                  const Text(
-                    'Be',
-                    style: TextStyle(fontSize: 43.0),
-                  ),
-                  const SizedBox(width: 20.0, height: 100.0),
-                  SizedBox(
-                    height: 250.0,
-                    width: 240.0,
-                    child: DefaultTextStyle(
-                      style: const TextStyle(
-                        fontSize: 40.0,
-                        fontFamily: 'Horizon',
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: AnimatedTextKit(
-                          pause: const Duration(seconds: 2),
-                          repeatForever: true,
-                          animatedTexts: [
-                            RotateAnimatedText('AWESOME'),
-                            RotateAnimatedText('OPTIMISTIC'),
-                            RotateAnimatedText('DIFFERENT'),
-                            RotateAnimatedText('Focused'),
-                          ],
-                          onTap: () {
-                            // print("Tap Event");
-                          },
+                items: images.map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                        decoration: const BoxDecoration(color: Colors.white),
+                        child: Container(
+                          child: i,
                         ),
+                      );
+                    },
+                  );
+                }).toList(),
+              ),
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                const SizedBox(width: 20.0, height: 100.0),
+                const Text(
+                  'Be',
+                  style: TextStyle(fontSize: 43.0),
+                ),
+                const SizedBox(width: 20.0, height: 100.0),
+                SizedBox(
+                  height: 250.0,
+                  width: 240.0,
+                  child: DefaultTextStyle(
+                    style: const TextStyle(
+                      fontSize: 40.0,
+                      fontFamily: 'Horizon',
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AnimatedTextKit(
+                        pause: const Duration(seconds: 2),
+                        repeatForever: true,
+                        animatedTexts: [
+                          RotateAnimatedText('AWESOME'),
+                          RotateAnimatedText('OPTIMISTIC'),
+                          RotateAnimatedText('DIFFERENT'),
+                          RotateAnimatedText('Focused'),
+                        ],
+                        onTap: () {
+                          // print("Tap Event");
+                        },
                       ),
                     ),
                   ),
-                ],
-              ),
-              home_scroll_slide_animation(
-                pixels: pixels,
-                height: 500,
-                toLeft: true,
-                contentText: dummyText,
-                contentTitle: "Hello AI world!!!!",
-                imageUrl:
-                    'https://miro.medium.com/max/2400/0*qO2PFu6dr04R1O6P.png',
-              ),
-              home_scroll_slide_animation(
-                pixels: pixels,
-                height: 800,
-                toLeft: false,
-                contentText: dummyText,
-                contentTitle: "Hello world !!!!",
-                imageUrl:
-                    'https://miro.medium.com/max/2400/0*qO2PFu6dr04R1O6P.png',
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+            HomeScrollSlideAnimation(
+              pixels: pixels,
+              height: 500,
+              toLeft: true,
+              contentText: dummyText,
+              contentTitle: "Hello AI world!!!!",
+              imageUrl:
+                  'https://miro.medium.com/max/2400/0*qO2PFu6dr04R1O6P.png',
+            ),
+            HomeScrollSlideAnimation(
+              pixels: pixels,
+              height: 800,
+              toLeft: false,
+              contentText: dummyText,
+              contentTitle: "Hello world !!!!",
+              imageUrl:
+                  'https://miro.medium.com/max/2400/0*qO2PFu6dr04R1O6P.png',
+            ),
+          ],
         ),
       ),
     );
   }
 }
 
-class home_scroll_slide_animation extends StatelessWidget {
-  const home_scroll_slide_animation({
+class HomeScrollSlideAnimation extends StatelessWidget {
+  const HomeScrollSlideAnimation({
     super.key,
     required this.pixels,
     required this.height,
@@ -204,7 +199,7 @@ class home_scroll_slide_animation extends StatelessWidget {
                 ),
           toLeft
               ? AnimatedPositioned(
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   top: 20.0,
                   left: pixels >= 200 ? 100.0 : 0.0,
                   child: Container(
@@ -223,7 +218,7 @@ class home_scroll_slide_animation extends StatelessWidget {
                 )
               : AnimatedPositioned(
                   // right: 50,
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   top: 20.0,
                   right: pixels >= 200 ? 100.0 : 0.0,
                   child: Container(
@@ -242,11 +237,11 @@ class home_scroll_slide_animation extends StatelessWidget {
                 ),
           toLeft
               ? AnimatedPositioned(
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   right: pixels >= 200 ? 100.0 : 0.0,
                   top: 30.0,
                   child: AnimatedOpacity(
-                    duration: Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     opacity: pixels >= 200 ? 1.0 : 0.0,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -301,11 +296,11 @@ class home_scroll_slide_animation extends StatelessWidget {
                   ),
                 )
               : AnimatedPositioned(
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   left: pixels >= 200 ? 100.0 : 0.0,
                   top: 30.0,
                   child: AnimatedOpacity(
-                    duration: Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     opacity: pixels >= 200 ? 1.0 : 0.0,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

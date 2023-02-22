@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import 'package:marutiseva/controllers/Locator.dart';
-import 'package:marutiseva/utils/constants.dart';
+import 'package:marutiseva/controllers/locator.dart';
 import 'package:marutiseva/widgets/navigation_bar_web.dart';
 import 'package:marutiseva/utils/index_incrementer.dart';
-import 'package:marutiseva/widgets/nav_item.dart';
 import 'package:marutiseva/widgets/project_entry.dart';
 
 import '../dataModels/project_model.dart';
@@ -20,7 +17,7 @@ class ServiceScreen extends StatefulWidget {
   //   required this.child,
   // }) : super(key: key);
 
-  ServiceScreen({
+  const ServiceScreen({
     Key? key,
   }) : super(key: key);
 
@@ -56,9 +53,9 @@ class _ServiceScreenState extends State<ServiceScreen> {
 
   @override
   void didChangeDependencies() {
-    precacheImage(AssetImage('assets/images/slide4.jpg'), context);
-    precacheImage(AssetImage('assets/images/slide4.jpg'), context);
-    precacheImage(AssetImage('assets/images/slide4.jpg'), context);
+    precacheImage(const AssetImage('assets/images/slide4.jpg'), context);
+    precacheImage(const AssetImage('assets/images/slide4.jpg'), context);
+    precacheImage(const AssetImage('assets/images/slide4.jpg'), context);
     super.didChangeDependencies();
   }
 
@@ -71,11 +68,9 @@ class _ServiceScreenState extends State<ServiceScreen> {
       body: Column(
         children: [
           nvbar,
-          Container(
-            child: ViewWrapper(
-              desktopView: desktopView(),
-              mobileView: mobileView(),
-            ),
+          ViewWrapper(
+            desktopView: desktopView(),
+            mobileView: mobileView(),
           )
         ],
       ),
@@ -107,7 +102,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                   children: images,
                 ),
                 SizedBox(width: space),
-                Container(
+                SizedBox(
                   height: screenHeight * 0.2 * 2 + space * 2,
                   child: Stack(
                     children: [
@@ -117,7 +112,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                             : selectedIndex == 1
                                 ? Alignment.center
                                 : Alignment.bottomCenter,
-                        duration: Duration(milliseconds: 1000),
+                        duration: const Duration(milliseconds: 1000),
                         curve: Curves.fastOutSlowIn,
                         child: Container(
                           color: Colors.yellow,
@@ -145,7 +140,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
             style: ThemeSelector.selectSubHeadline(context),
           ),
           SizedBox(height: screenHeight * 0.01),
-          Container(
+          SizedBox(
             height: screenHeight * 0.1,
             width: screenWidth,
             child: ClipRRect(

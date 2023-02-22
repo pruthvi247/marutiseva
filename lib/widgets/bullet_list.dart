@@ -8,6 +8,7 @@ class BulletList extends StatefulWidget {
   final List<String> strings;
 
   @override
+  // ignore: library_private_types_in_public_api
   _BulletListState createState() => _BulletListState();
 }
 
@@ -18,8 +19,9 @@ class _BulletListState extends State<BulletList>
   @override
   void initState() {
     _animationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000));
-    Timer(Duration(milliseconds: 200), () => _animationController.forward());
+        vsync: this, duration: const Duration(milliseconds: 1000));
+    Timer(const Duration(milliseconds: 200),
+        () => _animationController.forward());
     super.initState();
   }
 
@@ -37,7 +39,7 @@ class _BulletListState extends State<BulletList>
                 index: index ~/ 2,
               ));
         } else {
-          return Spacer(flex: 1);
+          return const Spacer(flex: 1);
         }
       }),
     );

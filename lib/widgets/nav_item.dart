@@ -19,7 +19,7 @@ class NavigationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Selcted in build ${title} : ${selected}");
+    debugPrint("Selcted in build $title : $selected");
     return GestureDetector(
       onTap: () {
         context.pushNamed(routeName);

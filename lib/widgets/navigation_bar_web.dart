@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:marutiseva/utils/index_incrementer.dart';
 
 import 'package:marutiseva/widgets/nav_item.dart';
 import 'package:marutiseva/utils/constants.dart';
-import 'package:marutiseva/controllers/Locator.dart' as loc;
+import 'package:marutiseva/controllers/locator.dart' as loc;
 import 'package:marutiseva/utils/index_incrementer.dart';
 
 class NavigationBarCustom extends StatefulWidget {
+  const NavigationBarCustom({super.key});
+
   @override
   State<NavigationBarCustom> createState() => _NavigationBarCustomState();
 }
@@ -15,7 +16,7 @@ class _NavigationBarCustomState extends State<NavigationBarCustom> {
   // late IndexIncrementNotifier dashboardValueNotifierq;
   @override
   void initState() {
-    print("Getting initialised🔥🔥");
+    debugPrint("Getting initialised🔥🔥");
     super.initState();
     // dashboardValueNotifier = IndexIncrementNotifier(
     //   value: IndexIncrement(tabIndex: ValueNotifier<int>(0)),
@@ -115,7 +116,7 @@ class _NavigationBarCustomState extends State<NavigationBarCustom> {
   }
 
   void changeHighlight(int newIndex) {
-    print("Selection changed : ${newIndex}");
+    debugPrint("Selection changed : $newIndex");
     dashboardValueNotifierq.setTabIndex(newIndex);
   }
 }

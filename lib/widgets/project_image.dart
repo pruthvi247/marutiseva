@@ -16,7 +16,7 @@ class ProjectImage extends StatelessWidget {
       data: ThemeData(
           splashColor: Colors.transparent, highlightColor: Colors.transparent),
       child: HoverCrossFadeWidget(
-          firstChild: Container(
+          firstChild: SizedBox(
             height: imageSize,
             width: imageSize,
             child: ClipRRect(
@@ -39,12 +39,12 @@ class ProjectImage extends StatelessWidget {
                   child: Center(
                     child: Text(
                       project.title,
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                     ),
                   )),
             ),
           ),
-          duration: Duration(milliseconds: 200)),
+          duration: const Duration(milliseconds: 200)),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import 'package:marutiseva/controllers/Locator.dart';
+import 'package:marutiseva/controllers/locator.dart';
 import 'package:marutiseva/widgets/navigation_bar_web.dart';
 
 import '../utils/theme_selector.dart';
@@ -14,7 +13,7 @@ class AboutScreen extends StatefulWidget {
   //   Key? key,
   //   required this.child,
   // }) : super(key: key);
-  AboutScreen({
+  const AboutScreen({
     Key? key,
   }) : super(key: key);
 
@@ -32,7 +31,7 @@ class _AboutScreenState extends State<AboutScreen>
 
   @override
   Widget build(BuildContext context) {
-    print("TRACE: Building about screen");
+    debugPrint("TRACE: Building about screen");
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
 
@@ -95,7 +94,7 @@ class _AboutScreenState extends State<AboutScreen>
   Widget infoSection() {
     return SizedBox(
       height: 600,
-      child: Container(
+      child: SizedBox(
         width: screenWidth * 0.35,
         child: Column(
           children: [
@@ -110,14 +109,14 @@ class _AboutScreenState extends State<AboutScreen>
 
   Widget profilePicture() {
     return SizedBox(
-      child: Container(
+      child: SizedBox(
         height: getImageSize(),
         width: getImageSize(),
         child: ClipRRect(
             borderRadius: BorderRadius.circular(getImageSize() / 2),
             child: Container(
               color: Colors.grey,
-              child: Center(child: Text('PLACEHOLDER IMAGE')),
+              child: const Center(child: Text('PLACEHOLDER IMAGE')),
             )),
       ),
     );

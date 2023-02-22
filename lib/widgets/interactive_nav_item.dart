@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:universal_html/html.dart' as html;
-import 'package:go_router/go_router.dart';
 
 import 'package:marutiseva/utils/constants.dart';
 
