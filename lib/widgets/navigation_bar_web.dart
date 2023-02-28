@@ -6,10 +6,32 @@ import 'package:marutiseva/controllers/locator.dart' as loc;
 import 'package:marutiseva/utils/index_incrementer.dart';
 
 class NavigationBarCustom extends StatefulWidget {
-  const NavigationBarCustom({super.key});
-
+  NavigationBarCustom({super.key});
+  IndexIncrementNotifier dashboardValueNotifierq =
+      loc.getItLocator<IndexIncrementNotifier>();
   @override
   State<NavigationBarCustom> createState() => _NavigationBarCustomState();
+  void onHighlight(String route) {
+    switch (route) {
+      case routeHome:
+        changeHighlight(0);
+        break;
+      case routeAbout:
+        changeHighlight(1);
+        break;
+      case routeContacts:
+        changeHighlight(2);
+        break;
+      case routeServices:
+        changeHighlight(3);
+        break;
+    }
+  }
+
+  void changeHighlight(int newIndex) {
+    debugPrint("Selection changed : $newIndex");
+    dashboardValueNotifierq.setTabIndex(newIndex);
+  }
 }
 
 class _NavigationBarCustomState extends State<NavigationBarCustom> {
@@ -44,7 +66,7 @@ class _NavigationBarCustomState extends State<NavigationBarCustom> {
                     ? true
                     : false,
                 routeName: routeHome,
-                onHighlight: onHighlight,
+                onHighlight: widget.onHighlight,
               );
             },
           ),
@@ -59,7 +81,7 @@ class _NavigationBarCustomState extends State<NavigationBarCustom> {
                     ? true
                     : false,
                 routeName: routeAbout,
-                onHighlight: onHighlight,
+                onHighlight: widget.onHighlight,
               );
             },
           ),
@@ -74,7 +96,7 @@ class _NavigationBarCustomState extends State<NavigationBarCustom> {
                     ? true
                     : false,
                 routeName: routeContacts,
-                onHighlight: onHighlight,
+                onHighlight: widget.onHighlight,
               );
             },
           ),
@@ -89,7 +111,7 @@ class _NavigationBarCustomState extends State<NavigationBarCustom> {
                     ? true
                     : false,
                 routeName: routeServices,
-                onHighlight: onHighlight,
+                onHighlight: widget.onHighlight,
               );
             },
           ),
@@ -98,25 +120,25 @@ class _NavigationBarCustomState extends State<NavigationBarCustom> {
     );
   }
 
-  void onHighlight(String route) {
-    switch (route) {
-      case routeHome:
-        changeHighlight(0);
-        break;
-      case routeAbout:
-        changeHighlight(1);
-        break;
-      case routeContacts:
-        changeHighlight(2);
-        break;
-      case routeServices:
-        changeHighlight(3);
-        break;
-    }
-  }
+  // void onHighlight(String route) {
+  //   switch (route) {
+  //     case routeHome:
+  //       changeHighlight(0);
+  //       break;
+  //     case routeAbout:
+  //       changeHighlight(1);
+  //       break;
+  //     case routeContacts:
+  //       changeHighlight(2);
+  //       break;
+  //     case routeServices:
+  //       changeHighlight(3);
+  //       break;
+  //   }
+  // }
 
-  void changeHighlight(int newIndex) {
-    debugPrint("Selection changed : $newIndex");
-    dashboardValueNotifierq.setTabIndex(newIndex);
-  }
+  // void changeHighlight(int newIndex) {
+  //   debugPrint("Selection changed : $newIndex");
+  //   dashboardValueNotifierq.setTabIndex(newIndex);
+  // }
 }

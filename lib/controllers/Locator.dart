@@ -7,9 +7,11 @@ import 'package:marutiseva/utils/index_incrementer.dart';
 GetIt getItLocator = GetIt.instance;
 Future<dynamic> setupLocator() async {
   // getItLocator.registerLazySingleton(() => NavigationBarCustom());
-  getItLocator.registerSingleton(const NavigationBarCustom());
   IndexIncrementNotifier dashboardValueNotifier = IndexIncrementNotifier(
     value: IndexIncrement(tabIndex: ValueNotifier<int>(0)),
   );
+  getItLocator.registerLazySingleton(() => NavigationBarCustom());
+  // getItLocator.registerSingleton(NavigationBarCustom());
+
   getItLocator.registerSingleton(dashboardValueNotifier);
 }

@@ -36,3 +36,6 @@ const kDefaultOutlineInputBorder = OutlineInputBorder(
     color: Color(0xFFCEE4FD),
   ),
 );
+
+const String ramalingamText =
+    'In public recongnition of the valuable services to the community rendered in the field of child welfare our director was honurned by her excellency the president of india, Shrimati Pratibha Devisingh patil, with National Award for child welfare,2009 pm 14th november 2010';
