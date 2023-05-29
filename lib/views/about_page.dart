@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:marutiseva/controllers/locator.dart';
 import 'package:marutiseva/widgets/navigation_bar_web.dart';
@@ -6,6 +7,7 @@ import 'package:marutiseva/widgets/navigation_bar_web.dart';
 import '../utils/theme_selector.dart';
 import '../widgets/bullet_list.dart';
 import '../widgets/view_warapper.dart';
+import 'package:marutiseva/utils/constants.dart';
 
 class AboutScreen extends StatefulWidget {
   // final Widget? child;
@@ -26,8 +28,6 @@ class _AboutScreenState extends State<AboutScreen>
   final NavigationBarCustom nvbar = getItLocator<NavigationBarCustom>();
   late double screenWidth;
   late double screenHeight;
-  String loremIpsum =
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
 
   @override
   Widget build(BuildContext context) {
@@ -52,24 +52,33 @@ class _AboutScreenState extends State<AboutScreen>
 
   Widget desktopView() {
     debugPrint('TRACE : Desktop view');
-    return Stack(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Spacer(flex: 1),
-            Expanded(flex: 3, child: infoSection()),
-            const Spacer(flex: 1),
-            Expanded(
-                flex: 3,
-                child: BulletList(
-                  strings: [loremIpsum, loremIpsum, loremIpsum, loremIpsum],
-                )),
-            const Spacer(flex: 1),
-          ],
-        )
-      ],
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Spacer(flex: 1),
+          Expanded(flex: 3, child: infoSection()),
+          const Spacer(flex: 1),
+          const Expanded(
+              flex: 5,
+              child: BulletList(
+                strings: [
+                  aboutUsBulletText1,
+                  aboutUsBulletText6,
+                  aboutUsBulletText2,
+                  aboutUsBulletText3,
+                  aboutUsBulletText4,
+                  aboutUsBulletText5,
+                  aboutUsBulletText6,
+                  aboutUsBulletText7,
+                  aboutUsBulletText8,
+                  aboutUsBulletText4,
+                ],
+              )),
+          const Spacer(flex: 1),
+        ],
+      ),
     );
   }
 
@@ -93,12 +102,23 @@ class _AboutScreenState extends State<AboutScreen>
 
   Widget infoSection() {
     return SizedBox(
-      height: 600,
+      // height: 600,
       child: SizedBox(
         width: screenWidth * 0.35,
         child: Column(
           children: [
-            profilePicture(),
+            Padding(
+              padding: const EdgeInsets.only(top: 250.0),
+              child: profilePicture(),
+            ),
+            SizedBox(height: screenHeight * 0.05),
+            Text(
+              "S.Ramalingam",
+              style: GoogleFonts.nunito(
+                fontWeight: FontWeight.w800,
+                fontSize: 25.0,
+              ),
+            ),
             SizedBox(height: screenHeight * 0.05),
             infoText()
           ],
@@ -116,7 +136,9 @@ class _AboutScreenState extends State<AboutScreen>
             borderRadius: BorderRadius.circular(getImageSize() / 2),
             child: Container(
               color: Colors.grey,
-              child: const Center(child: Text('PLACEHOLDER IMAGE')),
+              child: Center(
+                  child: Image.asset(
+                      "assets/images/home-image-side-annimation.png")),
             )),
       ),
     );
@@ -136,7 +158,8 @@ class _AboutScreenState extends State<AboutScreen>
 
   Widget infoText() {
     return Text(
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      ramalingamText,
+      // ramalingamTextFull,
       overflow: TextOverflow.clip,
       style: ThemeSelector.selectBodyText(context),
     );

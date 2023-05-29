@@ -14,3 +14,12 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+-------------------------- Notes ------------------------------------
+
+**Run on web**
+[Source](https://stackoverflow.com/questions/65536213/how-to-open-compiled-flutter-web-index-html-in-browser-locally)
+> \[flutter_project]\build\web> python -m http.server
+
+or
+> \[flutter_project]\build\web> python -m SimpleHTTPServer

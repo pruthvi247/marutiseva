@@ -27,22 +27,43 @@ class _BulletListState extends State<BulletList>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(widget.strings.length * 2, (index) {
-        if (index.isEven) {
-          return Flexible(
-              flex: 2,
-              child: BulletPoint(
-                text: widget.strings[index ~/ 2],
-                animationController: _animationController,
-                index: index ~/ 2,
-              ));
-        } else {
-          return const Spacer(flex: 1);
-        }
-      }),
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(widget.strings.length * 2, (index) {
+            if (index.isEven) {
+              return Flexible(flex: 2, child: Text(widget.strings[index]));
+              // child: BulletPoint(
+              //   text: widget.strings[index ~/ 2],
+              //   animationController: _animationController,
+              //   index: index ~/ 2,
+              // ));
+            } else {
+              return const Spacer(flex: 1);
+            }
+          }),
+        ),
+      ),
     );
+    // return Column(
+    //   mainAxisAlignment: MainAxisAlignment.center,
+    //   children: List.generate(widget.strings.length * 2, (index) {
+    //     if (index.isEven) {
+    //       return Flexible(
+    //           flex: 2,
+    //           child: BulletPoint(
+    //             text: widget.strings[index ~/ 2],
+    //             animationController: _animationController,
+    //             index: index ~/ 2,
+    //           ));
+    //     } else {
+    //       return const Spacer(flex: 1);
+    //     }
+    //   }),
+    // );
   }
 
   @override
@@ -51,3 +72,13 @@ class _BulletListState extends State<BulletList>
     super.dispose();
   }
 }
+
+
+// class MyWidget extends StatelessWidget {
+//   const MyWidget({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Placeholder();
+//   }
+// }

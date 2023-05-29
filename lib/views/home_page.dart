@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String homeImageSlideAnnimation = 'assets/images/slide1.jpg';
   String aboutUSImageSlideAnnimation =
       'assets/images/aboutus-side-animation-image.jpeg';
-
+  // String footerImage = 'assets/images/marutiseva-footer-image.png';
   List<Image> images = const [
     Image(image: AssetImage('assets/images/slide1.jpg')),
     Image(image: AssetImage('assets/images/slide2.png')),
@@ -101,10 +101,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       }).toList(),
                     ),
                   ),
-
                   const SizedBox(width: 20.0, height: 100.0),
                   HomeScrollSlideAnimation(
                     pixels: pixels,
+                    pixelsLimit: 250,
                     height: 500,
                     toLeft: true,
                     contentText: ramalingamText,
@@ -113,13 +113,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   HomeScrollSlideAnimation(
                     pixels: pixels,
-                    height: 800,
+                    pixelsLimit: 250,
+                    height: 500,
                     toLeft: false,
                     contentText: dummyText,
                     contentTitle: "About Us",
                     imageUrl: aboutUSImageSlideAnnimation,
                   ),
+                  HomeScrollSlideAnimation(
+                    pixels: pixels,
+                    pixelsLimit: 250,
+                    height: 800,
+                    toLeft: true,
+                    contentText: ramalingamText,
+                    contentTitle: "S.Ramalingam",
+                    imageUrl: homeImageSlideAnnimation,
+                  ),
                   Container(
+                    height: 500,
                     padding: EdgeInsets.all(8.0 * factor),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
@@ -132,44 +143,44 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                  ),
-                  // Row(
-                  //   mainAxisSize: MainAxisSize.min,
-                  //   children: <Widget>[
-                  //     const SizedBox(width: 20.0, height: 100.0),
-                  //     const Text(
-                  //       'Be',
-                  //       style: TextStyle(fontSize: 43.0),
-                  //     ),
-                  //     const SizedBox(width: 20.0, height: 100.0),
-                  //     SizedBox(
-                  //       height: 250.0,
-                  //       width: 240.0,
-                  //       child: DefaultTextStyle(
-                  //         style: const TextStyle(
-                  //           fontSize: 40.0,
-                  //           fontFamily: 'Horizon',
-                  //         ),
-                  //         child: Padding(
-                  //           padding: const EdgeInsets.all(8.0),
-                  //           child: AnimatedTextKit(
-                  //             pause: const Duration(seconds: 2),
-                  //             repeatForever: true,
-                  //             animatedTexts: [
-                  //               RotateAnimatedText('AWESOME'),
-                  //               RotateAnimatedText('OPTIMISTIC'),
-                  //               RotateAnimatedText('DIFFERENT'),
-                  //               RotateAnimatedText('Focused'),
-                  //             ],
-                  //             onTap: () {
-                  //               // print("Tap Event");
-                  //             },
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
+                    // Row(
+                    //   mainAxisSize: MainAxisSize.min,
+                    //   children: <Widget>[
+                    //     const SizedBox(width: 20.0, height: 100.0),
+                    //     const Text(
+                    //       'Be',
+                    //       style: TextStyle(fontSize: 43.0),
+                    //     ),
+                    //     const SizedBox(width: 20.0, height: 100.0),
+                    //     SizedBox(
+                    //       height: 250.0,
+                    //       width: 240.0,
+                    //       child: DefaultTextStyle(
+                    //         style: const TextStyle(
+                    //           fontSize: 40.0,
+                    //           fontFamily: 'Horizon',
+                    //         ),
+                    //         child: Padding(
+                    //           padding: const EdgeInsets.all(8.0),
+                    //           child: AnimatedTextKit(
+                    //             pause: const Duration(seconds: 2),
+                    //             repeatForever: true,
+                    //             animatedTexts: [
+                    //               RotateAnimatedText('AWESOME'),
+                    //               RotateAnimatedText('OPTIMISTIC'),
+                    //               RotateAnimatedText('DIFFERENT'),
+                    //               RotateAnimatedText('Focused'),
+                    //             ],
+                    //             onTap: () {
+                    //               // print("Tap Event");
+                    //             },
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+                  )
                 ],
               ),
             ),

@@ -52,9 +52,14 @@ class _NavigationBarCustomState extends State<NavigationBarCustom> {
     return SizedBox(
       height: 100.0,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Image.asset("assets/images/logo-maruti-seva.jpeg"),
+          ),
+          const Spacer(),
           ValueListenableBuilder(
             valueListenable: dashboardValueNotifierq.value.tabIndex,
             builder: (BuildContext context, int value, Widget? child) {

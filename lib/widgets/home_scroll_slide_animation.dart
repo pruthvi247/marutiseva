@@ -11,6 +11,7 @@ class HomeScrollSlideAnimation extends StatelessWidget {
   HomeScrollSlideAnimation({
     super.key,
     required this.pixels,
+    required this.pixelsLimit,
     required this.height,
     required this.toLeft,
     required this.imageUrl,
@@ -23,6 +24,7 @@ class HomeScrollSlideAnimation extends StatelessWidget {
   final NavigationBarCustom nvbar = getItLocator<NavigationBarCustom>();
 
   final double pixels;
+  final double pixelsLimit;
   final double height;
   final bool toLeft;
   final String imageUrl;
@@ -65,7 +67,7 @@ class HomeScrollSlideAnimation extends StatelessWidget {
               ? AnimatedPositioned(
                   duration: const Duration(milliseconds: 500),
                   top: 20.0,
-                  left: pixels >= 200 ? 100.0 : 0.0,
+                  left: pixels >= pixelsLimit ? 100.0 : 0.0,
                   child: Container(
                     height: 400.0,
                     width: 700.0,
@@ -88,9 +90,9 @@ class HomeScrollSlideAnimation extends StatelessWidget {
                   // right: 50,
                   duration: const Duration(milliseconds: 500),
                   top: 20.0,
-                  right: pixels >= 200 ? 100.0 : 0.0,
+                  right: pixels >= pixelsLimit ? 100.0 : 0.0,
                   child: Container(
-                    height: 400.0,
+                    height: 300.0,
                     width: 700.0,
                     decoration: BoxDecoration(
                       color: Colors.red,
@@ -106,11 +108,11 @@ class HomeScrollSlideAnimation extends StatelessWidget {
           toLeft
               ? AnimatedPositioned(
                   duration: const Duration(milliseconds: 500),
-                  right: pixels >= 200 ? 100.0 : 0.0,
+                  right: pixels >= pixelsLimit ? 100.0 : 0.0,
                   top: 30.0,
                   child: AnimatedOpacity(
                     duration: const Duration(milliseconds: 500),
-                    opacity: pixels >= 200 ? 1.0 : 0.0,
+                    opacity: pixels >= pixelsLimit ? 1.0 : 0.0,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -171,11 +173,11 @@ class HomeScrollSlideAnimation extends StatelessWidget {
                 )
               : AnimatedPositioned(
                   duration: const Duration(milliseconds: 500),
-                  left: pixels >= 200 ? 100.0 : 0.0,
+                  left: pixels >= pixelsLimit ? 100.0 : 0.0,
                   top: 30.0,
                   child: AnimatedOpacity(
                     duration: const Duration(milliseconds: 500),
-                    opacity: pixels >= 200 ? 1.0 : 0.0,
+                    opacity: pixels >= pixelsLimit ? 1.0 : 0.0,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
